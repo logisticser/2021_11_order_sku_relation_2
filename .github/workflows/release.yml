@@ -1,0 +1,10 @@
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]*"
+
+jobs:
+  release:
+    uses: keaising/github/.github/workflows/release-go.yml@master
+    with:
+      name: sku
