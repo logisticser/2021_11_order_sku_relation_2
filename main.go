@@ -5,7 +5,6 @@ import (
 	"log"
 	"os"
 	"sort"
-	"strconv"
 	"strings"
 	"time"
 
@@ -13,7 +12,6 @@ import (
 )
 
 var (
-	ratio     = 90
 	inputFile = "order.xlsx"
 )
 
@@ -23,29 +21,11 @@ func init() {
 	case len(args) == 1:
 		if strings.HasSuffix(args[0], "xlsx") {
 			inputFile = args[0]
-		} else {
-			t, err := strconv.Atoi(args[0])
-			if err != nil {
-				log.Println("please input a valid ratio number, use default: ", ratio)
-				return
-			}
-			ratio = t
 		}
-	case len(args) > 1:
-		if strings.HasSuffix(args[0], "xlsx") {
-			inputFile = args[0]
-		}
-		t, err := strconv.Atoi(args[1])
-		if err != nil {
-			log.Println("please input a valid ratio number, use default: ", ratio)
-			return
-		}
-		ratio = t
 	}
 }
 
 func main() {
-	fmt.Println("hello")
 	log.Println("1. read file: ", inputFile)
 	f, err := excelize.OpenFile(inputFile)
 	if err != nil {
