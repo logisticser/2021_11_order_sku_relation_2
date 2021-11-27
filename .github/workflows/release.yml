@@ -7,4 +7,4 @@ jobs:
   release:
     uses: keaising/github/.github/workflows/release-go.yml@master
     with:
-      name: sku
+      name: sku2
